@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MasterTimeButton" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:strokeColor">@android:color/white</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+    </style>
+
+</resources>

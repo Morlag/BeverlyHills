@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/my_nav"
+    app:startDestination="@id/menu_home">
+
+    <fragment
+        android:id="@+id/menu_appointment"
+        android:name="com.morlag.nails.fragments.AppointmentFragment"
+        android:label="AppointmentFragment" />
+    <fragment
+        android:id="@+id/menu_home"
+        android:name="com.morlag.nails.fragments.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/menu_contact"
+        android:name="com.morlag.nails.fragments.ContactFragment"
+        android:label="ContactFragment" />
+</navigation>
