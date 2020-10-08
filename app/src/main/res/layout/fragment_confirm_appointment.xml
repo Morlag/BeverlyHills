@@ -74,7 +74,7 @@
             app:notMaskedSymbol="*" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/comment_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -85,17 +85,17 @@
             app:layout_constraintTop_toBottomOf="@+id/phone_info" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/comment_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             android:maxLength="150"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            app:layout_constraintTop_toBottomOf="@+id/comment_label" />
 
         <Button
             android:id="@+id/button3"
@@ -106,7 +106,7 @@
             android:text="Записаться"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+            app:layout_constraintTop_toBottomOf="@+id/comment_edit"
             app:strokeColor="@color/colorBlack" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

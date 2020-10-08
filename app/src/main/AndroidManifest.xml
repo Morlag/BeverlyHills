@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activities.ConfirmAppointmentActivity"></activity>
+        <activity android:name=".activities.ChoiseTimeActivity" />
+        <activity android:name=".activities.CalendarActivity" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,9 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MasterlistActivity"></activity>
-        <activity android:name=".activities.MasterInfoActivity"></activity>
-        <activity android:name=".activities.ServiceListActivity"></activity>
+        <activity android:name=".activities.MasterlistActivity" />
+        <activity android:name=".activities.MasterInfoActivity" />
+        <activity android:name=".activities.ServiceListActivity" />
     </application>
 
 </manifest>
