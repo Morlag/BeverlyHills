@@ -51,7 +51,7 @@ public class CalendarFragment extends Fragment {
                 }catch (Exception ex){}
             }
         });
-        cal.setDate(Calendar.getInstance().getTimeInMillis());
+        currentDate = cal.getDate();
 
         Button back = v.findViewById(R.id.btn_back);
         back.setOnClickListener(new View.OnClickListener() {

@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,16 +27,20 @@ public class AppointmentFragment extends Fragment {
     private final int DATETIME_REQUEST_CODE = 2;
     private final int CONFIRM_APPOINTMENT_REQUEST_CODE = 3;
 
+    ConstraintLayout constrWhole;
     ConstraintLayout constrEmp;
     ConstraintLayout constrService;
     ConstraintLayout constrDatetime;
+    ConstraintLayout constrPrice;
+    Button makeVisit;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_appointment,container,false);
 
-        constrEmp = v.findViewById(R.id.whole_items);
+        constrWhole = v.findViewById(R.id.whole_items);
+        constrEmp = v.findViewById(R.id.item_emp);
         constrEmp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +67,9 @@ public class AppointmentFragment extends Fragment {
             }
         });
 
-        Button makeVisit = v.findViewById(R.id.btn_make_visit);
+        constrPrice = v.findViewById(R.id.item_price);
+
+        makeVisit = v.findViewById(R.id.btn_make_visit);
         makeVisit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,26 +86,36 @@ public class AppointmentFragment extends Fragment {
         //super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == EMP_REQUEST_CODE){
             if(resultCode == RESULT_OK){
-                TextView txt = constrEmp.findViewById(R.id.emp_name);
+                TextView txt = constrWhole.findViewById(R.id.emp_name);
                 String name = data.getStringExtra("name");
                 txt.setText(name);
+                constrDatetime.setVisibility(View.VISIBLE);
             }
         }
         else if(requestCode == SERVICE_REQUEST_CODE){
             if(resultCode == RESULT_OK){
-                TextView txt = constrEmp.findViewById(R.id.service_name);
+                TextView txt = constrWhole.findViewById(R.id.service_name);
                 String list = data.getStringExtra("services");
+                ((TextView)constrPrice.findViewById(R.id.price_name)).setText(String.valueOf(data.getDoubleExtra("price" ,0))+"₽");
                 txt.setText(list);
             }
         }
         else if(requestCode == DATETIME_REQUEST_CODE){
             if(resultCode == RESULT_OK){
-                TextView txt = constrEmp.findViewById(R.id.datetime_name);
+                TextView txt = constrWhole.findViewById(R.id.datetime_name);
                 String date = data.getStringExtra("datetime");
                 txt.setText(date);
+
+                constrPrice.setVisibility(View.VISIBLE);
+                makeVisit.setVisibility(View.VISIBLE);
             }
         }
-        else if(requestCode == CONFIRM_APPOINTMENT_REQUEST_CODE && resultCode == RESULT_OK)
-            getActivity().finish();
+        else if(requestCode == CONFIRM_APPOINTMENT_REQUEST_CODE && resultCode == RESULT_OK){
+            //clear fields
+            ((TextView)constrWhole.findViewById(R.id.emp_name)).setText("Сотрудник");
+            ((TextView)constrWhole.findViewById(R.id.service_name)).setText("Услуги");
+            ((TextView)constrWhole.findViewById(R.id.datetime_name)).setText("Дата и время");
+            ((TextView)constrWhole.findViewById(R.id.price_name)).setText("0₽");
+        }
     }
 }
